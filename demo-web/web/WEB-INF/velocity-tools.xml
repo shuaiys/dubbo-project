@@ -1,0 +1,24 @@
+<?xml
+ version="1.0" encoding="UTF-8"?>
+<toolbox>
+    <!--<tool>-->
+        <!--<key>pageUtil</key>-->
+        <!--<class>com.shuaiys.common.utils.PageUtil</class>-->
+    <!--</tool>-->
+    <!--<tool>-->
+        <!--<key>paginator</key>-->
+        <!--<class>com.shuaiys.common.utils.Paginator</class>-->
+    <!--</tool>-->
+    <!--<tool>-->
+        <!--<key>mathTool</key>-->
+        <!--<class>org.apache.velocity.tools.generic.MathTool</class>-->
+    <!--</tool>-->
+    <!--<tool>-->
+        <!--<key>stringUtil</key>-->
+        <!--<class>com.shuaiys.common.utils.StringUtils</class>-->
+    <!--</tool>-->
+    <!--<tool>-->
+        <!--<key>dateUtils</key>-->
+        <!--<class>com.shuaiys.common.utils.DateUtils</class>-->
+    <!--</tool>-->
+</toolbox>

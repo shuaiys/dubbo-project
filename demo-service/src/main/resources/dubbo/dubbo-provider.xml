@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+        default-autowire="byName" default-lazy-init="false">
+
+    <dubbo:application name="${dubbo.application.name}" owner="programmer" organization="dubbox"/>
+    
+    <dubbo:registry id="demo-service-dubbo" address="${dubbo.registry.address}" timeout="${dubbo.registry.timeout}"/>
+    <!--<dubbo:registry id="demo-service-dubbo-es" address="${dubbo.registry.address-es}" timeout="${dubbo.registry.timeout}"/>-->
+    
+    <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}"/>
+    
+    <!-- use tomcat server -->
+    <dubbo:protocol name="rest" port="31002" threads="1000" contextpath="services" server="tomcat" accepts="2000" />
+    <!--heartBeat放在最前面,保证heartBeat最先启动 -->
+    <!--<bean id="heartbeatRestService" class="com.shuaiys.demo.facade.impl.HeartbeatRestServiceImpl"/>-->
+    <!--<dubbo:service interface="com.shuaiys.demo.facade.HeartbeatRestService" ref="heartbeatRestService"-->
+                   <!--protocol="rest" timeout="${dubbo.service.timeout}" retries="${dubbo.service.retries}"/>-->
+
+    <!-- === 声明需要暴露的服务接口  rest === -->
+    
+    <!--moments rest -->
+    <!--<bean id="gemeRestService" class="com.shuaiys.facade.impl.GameRestServiceImpl"/>-->
+    <!--<dubbo:service interface="com.shuaiys.facade.MomentsRestService" ref="gameRestService"-->
+               <!--protocol="rest" group="${dubbo.service.group}" timeout="${dubbo.service.timeout}" retries="${dubbo.service.retries}"/>-->
+
+    <!-- === 声明需要暴露的服务接口  dubbo=== -->
+    <dubbo:service ref="gameCarServiceImpl" interface="com.shuaiys.service.GameCarService"
+            protocol="${dubbo.service.protocol}" group="${dubbo.service.group}" timeout="${dubbo.service.timeout}" retries="${dubbo.service.retries}"/>
+    
+</beans>
